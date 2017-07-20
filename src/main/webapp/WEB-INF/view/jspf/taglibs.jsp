@@ -6,7 +6,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
-<link rel="stylesheet" type="text/css" href="${ctx}/css/style.css" />
-<link rel="stylesheet" type="text/css" href="${ctx}/css/shopping-mall-index.css" />
-<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
-<script type="text/javascript" src="${ctx}/js/zhonglin.js"></script>
+<link href="${ctx}/css/style.css" rel='stylesheet' type='text/css' />
+<link href="${ctx}/css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+<script src="${ctx}/js/jquery.min.js"></script>

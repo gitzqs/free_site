@@ -1,149 +1,239 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/view/jspf/taglibs.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/view/jspf/taglibs.jsp"%>
+<!DOCTYPE HTML>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>在线商城首页</title>
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>网店云</title>
 
+<script type="text/javascript" src="${ctx}/js/move-top.js"></script>
+<script type="text/javascript" src="${ctx}/js/easing.js"></script>
+<script src="${ctx}/js/responsiveslides.min.js"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+</script>
+
+<script type="application/x-javascript"> 
+	addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
+<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('nav ul');
+					menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 320 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	    		});
+			});
+</script>
+<script>
+			    
+			    $(function () {
+			      // Slideshow 4
+			      $("#slider4").responsiveSlides({
+			        auto: true,
+			        pager: true,
+			        nav: true,
+			        speed: 500,
+			        namespace: "callbacks",
+			        before: function () {
+			          $('.events').append("<li>before event fired.</li>");
+			        },
+			        after: function () {
+			          $('.events').append("<li>after event fired.</li>");
+			        }
+			      });
+			
+			    });
+</script>
+</head>
 <body>
-	<!--top 开始-->
-	<%@ include file="/WEB-INF/view/com/header.jsp" %>
-    
-    <!--logo search 开始-->
-	<%@ include file="/WEB-INF/view/com/search.jsp" %>
-    
-    <!--空格位置（预留切换城市）-->
-    <div class="switch-city w1200">
-    	<span>&nbsp;</span>
-    </div>
-    
-    <!--菜单 开始-->
-	<%@ include file="/WEB-INF/view/com/menu.jsp" %>
-    
-    <!--banner 开始-->
-    <div class="banner-box">
-    	<div class="banner w1200">
-        	<ul>
-        		<c:forEach items="${calList}" var="calLis">
-        			<li><a href="JavaScript:;"><img src="${calLis.image}" /></a></li>
-        		</c:forEach>
-                <div style="clear:both;"></div>
-            </ul>
-            <a href="JavaScript:;" class="bnr bnr-left"><</a>
-            <a href="JavaScript:;" class="bnr bnr-right">></a>
-        </div>
-    </div>
-    
-    <!--热门推荐-->
-    <div class="hot-recommend w1200">
-    	<h3>热门推荐</h3>
-        <ul class="">
-        	<li class="ys1">
-            	<a href="#"><img src="${ctx}/images/hot-tu1.jpg" /></a>
-                <div class="ys1-opt"></div>
-                <div class="ys1-ft">
-                	<p>最唯美<br /><span>时尚酒店</span></p>
-                    <a href="#">点击有实惠</a>
-                </div>
-            </li>
-            <li class="ys2">
-            	<p>汽车保养</p>
-                <a href="#" class="ys2-a1" style="margin-bottom:25px;">上门汽车保养1一元钱</a>
-            	<a href="#"><img src="${ctx}/images/hot-tu2.jpg" /></a>
-            </li>
-            <li class="ys2">
-            	<p>汽车保养</p>
-                <a href="#" class="ys2-a1">上门汽车保养1一元钱</a>
-                <a href="#"><img src="${ctx}/images/hot-tu3.jpg" /></a>
-            </li>
-            <li class="ys2" style=" width:298px;">
-            	<p>汽车保养</p>
-                <a href="#" class="ys2-a1">上门汽车保养1一元钱</a>
-            	<a href="#"><img src="${ctx}/images/hot-tu4.jpg" /></a>
-            </li>
-            <li class="ys1">
-            	<a href="#"><img src="${ctx}/images/hot-tu5.jpg" /></a>
-                <div class="ys1-opt"></div>
-                <div class="ys1-ft">
-                	<p>最实惠KTV<br /><span>最佳组合</span></p>
-                    <a href="#">点击有实惠</a>
-                </div>
-            </li>
-            <li class="ys1">
-            	<a href="#"><img src="${ctx}/images/hot-tu6.jpg" /></a>
-                <div class="ys1-opt"></div>
-                <div class="ys1-ft">
-                	<p>最贴心家政<br /><span>包您满意</span></p>
-                    <a href="#">点击有实惠</a>
-                </div>
-            </li>
-            <li class="ys2">
-            	<p>汽车保养</p>
-                <a href="#" class="ys2-a1" style="margin-bottom:12px;">上门汽车保养1一元钱</a>
-            	<a href="#"><img src="${ctx}/images/hot-tu7.jpg" /></a>
-            </li>
-            <li class="ys2" style="width:298px;">
-            	<p>汽车保养</p>
-                <a href="#" class="ys2-a1" style="margin-bottom:15px;">上门汽车保养1一元钱</a>
-            	<a href="#"><img src="${ctx}/images/hot-tu8.jpg" /></a>
-            </li>
-            <div style="clear:both;"></div>
-        </ul>
-    </div>
-    
-    <!--商品内容页面-->
-    <div class="shopping-content w1200">
-    	<c:forEach items="${typeList}" var="tl" varStatus="vs">
-    	<div class="sp-con-info">
-        	<h3 class="sp-info-tit"><span>${vs.index}F</span>${tl.name}</h3>
-        	<div class="sp-info-l f-l">
-            	<a href="#"><img src="${ctx}${tl.image}" /></a>
-                <div class="sp-l-b">
-                	<c:forEach items="${tl.list}" var="cl">
-                		<a href="#">${cl.name}</a>
-                	</c:forEach>
-                </div>
-            </div>
-        	<ul class="sp-info-r f-r">
-        		<c:forEach items="${tl.goodsList}" var="gl">
-        			<li>
-                        <div class="li-top">
-                            <a href="#" class="li-top-tu"><img src="${ctx}/images/sp-con-r-tu.gif" /></a>
-                            <p class="jiage"><span class="sp1">￥109</span><span class="sp2">￥${gl.price}</span></p>
-                        </div>
-                        <p class="miaoshu">${gl.goodsName}</p>
-                        <div class="li-md">
-                            <div class="md-l f-l">
-                                <p class="md-l-l f-l" ap="">1</p>
-                                <div class="md-l-r f-l">
-                                    <a href="JavaScript:;" class="md-xs" at="">∧</a>
-                                    <a href="JavaScript:;" class="md-xx" ab="">∨</a>
-                                </div>
-                                <div style="clear:both;"></div>
-                            </div>
-                            <div class="md-r f-l">
-                                <button class="md-l-btn1">立即购买</button>
-                                <button class="md-l-btn2">加入购物车</button>
-                            </div>
-                            <div style="clear:both;"></div>
-                        </div>
-                        <p class="pingjia">88888评价</p>
-                        <p class="weike">微克宅购自营</p>
-                    </li>
-        		</c:forEach>
-            </ul>
-            <div style="clear:both;"></div>
-        </div>
-        
-        </c:forEach>
-        
-    </div>
-    
-    <!--底部服务-->
-   <%@ include file="/WEB-INF/view/com/footer.jsp" %>
-    
+	<!----- start-header---->
+	<div id="home" class="header">
+		<div class="top-header bounceInDown" data-wow-delay="0.4s">
+			<%@ include file="/WEB-INF/view/base/header.jsp"%>
+			<%@ include file="/WEB-INF/view/base/nav.jsp"%>
+		</div>
+	</div>
+	
+	
+	<div id="top" class="callbacks_container">
+		<ul class="rslides" id="slider4">
+			<li><img src="${ctx}/images/slide1.jpg" alt=""></li>
+			<li><img src="${ctx}/images/slide2.jpg" alt=""></li>
+			<li><img src="${ctx}/images/slide3.jpg" alt=""></li>
+		</ul>
+	</div>
+	<div class="clearfix"></div>
+	
+	<div id="about" class="top-grids text-center">
+		<section id="one" class="main style1">
+			<div class="container">
+				<div class="row 150%">
+					<div class="6u 12u$(medium)">
+						<header class="major">
+							<h2>
+								便捷<br /> Convenient
+							</h2>
+						</header>
+						<p>无论是电脑PC端、微信商城、APP、手机商城，一键发布，全都展示。无论是电脑PC端、微信商城、APP、手机商城，一键发布，全都展示。无论是电脑PC端、微信商城、APP、手机商城，一键发布，全都展示。无论是电脑PC端、微信商城、APP、手机商城，一键发布，全都展示。无论是电脑PC端、微信商城、APP、手机商城，一键发布，全都展示。</p>
+					</div>
+					<div class="button-1"></div>
+					<div class="6u$ 12u$(medium) important(medium)">
+						<span class="image fit"><img src="${ctx}/images/pic01.png" alt="" /></span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<!---- top-grids ---->
+	<!---- works ---->
+	<div id="portfolio" class="works text-center">
+		<div id="about" class="top-grids text-center">
+			<div class="container">
+				<div class="col-md-4">
+					<div class="top-grid">
+						<span><label class="icon1"> </label></span>
+						<h3>
+							<a href="#">技术服务</a>
+						</h3>
+						<p>此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="top-grid">
+						<span><label class="icon2"> </label></span>
+						<h3>
+							<a href="#">技术服务</a>
+						</h3>
+						<p>此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="top-grid">
+						<span><label class="icon3"> </label></span>
+						<h3>
+							<a href="#">技术服务</a>
+						</h3>
+						<p>此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字</p>
+					</div>
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!---- works ---->
+	<div class="index">
+		<div class="index-1 container top-grid ">
+			<a href="#"><img src="${ctx}/images/index_02.jpg"></a>
+		</div>
+	</div>
+	<!---- skills --->
+	<div id="skills" class="skills">
+		<div class="container">
+			<div id="about" class="top-grids text-center">
+				<section id="one" class="main style1">
+					<div class="container">
+						<div class="row 150%">
+							<div class="6u 12u$(medium)">
+								<header class="major">
+									<h2>
+										优势<br /> Advantage
+									</h2>
+								</header>
+								<p>支持支付宝 微信支付 模板定制 支持支付宝 微信支付 模板定制 支持支付宝 微信支付 模板定制 支持支付宝
+									微信支付 模板定制 支持支付宝 微信支付 模板定制 支持支付宝 微信支付 模板定制 支持支付宝 微信支付 模板定制 支持支付宝
+									微信支付 模板定制 支持支付宝 微信支付 模板定制</p>
+
+							</div>
+							<div class="6u$ 12u$(medium) important(medium)">
+								<span class="image fit"><img src="${ctx}/images/box-2.png"
+									alt="" /></span>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<!---- skills --->
+		<!---- team ---->
+		<div id="team" class="team">
+			<div class="container">
+				<div class="head-section text-center">
+					<h2>
+						<a href="#">成功案例</a>
+					</h2>
+					<p>Successful case</p>
+				</div>
+				<!---- team-grids ---->
+				<div class="team-grids text-center">
+					<div class="col-md-4">
+						<div class="team-grid">
+							<img class="img-responsive t-pic" src="${ctx}/images/t1.jpg"
+								title="name" />
+							<h3>
+								<a href="#">爱婴之家</a>
+							</h3>
+							<span>PC商城案例</span>
+							<p>此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="team-grid">
+							<img class="img-responsive t-pic" src="${ctx}/images/t1.jpg"
+								title="name" />
+							<h3>
+								<a href="#">爱婴之家</a>
+							</h3>
+							<span>PC商城案例</span>
+							<p>此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="team-grid">
+							<img class="img-responsive t-pic" src="${ctx}/images/t1.jpg"
+								title="name" />
+							<h3>
+								<a href="#">爱婴之家</a>
+							</h3>
+							<span>PC商城案例</span>
+							<p>此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字此处是文字</p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!---- team-grids ---->
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<!---- team ---->
+		<!---- contact ---->
+
+	</div>
+	<!---- contact ---->
+	<div class="clearfix"></div>
+	<!--- footer ---->
+	<%@ include file="/WEB-INF/view/base/footer.jsp"%>
+	<!--- footer ---->
+	
+	<!---- sub-footer --->
+	<%@ include file="/WEB-INF/view/base/sub_footer.jsp"%>
+	<!---- sub-footer --->
 </body>
 </html>

@@ -18,10 +18,7 @@ public class ReturnObject extends REntity{
 	private String returnMsg;
 	
 	/** 返回数据 */	
-	private Object returnData;
-	
-	/** 返回实体类 */
-	private String returnObj;
+	private Object returnData;	
 
 	public String getReturnCode() {
 		return returnCode;
@@ -46,15 +43,4 @@ public class ReturnObject extends REntity{
 	public void setReturnData(Object returnData) {
 		this.returnData = returnData;
 	}
-
-	public String getReturnObj() {
-		return returnObj;
-	}
-
-	public void setReturnObj(String returnObj) {
-		this.returnObj = returnObj;
-	}
-	
-	
-
 }
