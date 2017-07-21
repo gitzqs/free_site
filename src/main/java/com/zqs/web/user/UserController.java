@@ -1,5 +1,7 @@
 package com.zqs.web.user;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +24,6 @@ public class UserController {
 	/**
 	 * 登录页面
 	 * 
-	 * @param 
 	 * @return String
 	 */
 	@RequestMapping(value="/login",method=RequestMethod.GET)
@@ -33,7 +34,7 @@ public class UserController {
 	/**
 	 * 登录认证
 	 * 
-	 * @param 
+	 * @param 用户名、密码
 	 * @return String
 	 */
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
@@ -41,5 +42,19 @@ public class UserController {
 	public String signin(@RequestBody String parameters){
 		UserInfo user = (UserInfo)JacksonUtils.json2object(parameters, UserInfo.class);
 		return userService.signin(user);
+	}
+	
+	/**
+	 * 退出登录
+	 * 
+	 * @return String
+	 */
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public String logout(){
+		Subject subject = SecurityUtils.getSubject();
+		if(subject.isAuthenticated()){
+			subject.logout();
+		}
+		return "redirect:/index/";
 	}
 }

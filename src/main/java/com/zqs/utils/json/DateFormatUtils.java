@@ -4,6 +4,7 @@ package com.zqs.utils.json;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,6 +60,39 @@ public class DateFormatUtils {
             logger.error("can't parse source: [{}] to date! catched Exception:\n\t{}", new Object[]{source, e.getLocalizedMessage()});
         }
         return null;
+    }
+    
+    
+    /**
+     * 时间+addIndex个分钟或小时
+     * 
+     * @param index 1:年;2:月;3:日;4:时;5:分;6:秒
+     * @return Date
+     */
+    public static Date add(Date date, int index, int addIndex){
+    	Calendar cal = Calendar.getInstance();
+    	cal.setTime(date);
+    	int type = Calendar.YEAR;
+    	switch(index){
+    	case 2 :
+    		type = Calendar.MONTH;
+    		break;
+    	case 3 :
+    		type = Calendar.DAY_OF_YEAR;
+    		break;
+    	case 4 :
+    		type = Calendar.HOUR_OF_DAY;
+    		break;
+    	case 5 :
+    		type = Calendar.MINUTE;
+    		break;
+    	case 6 :
+    		type = Calendar.SECOND;
+    		break;
+    	}
+    	cal.add(type, addIndex);
+    	
+    	return cal.getTime();
     }
     
 }

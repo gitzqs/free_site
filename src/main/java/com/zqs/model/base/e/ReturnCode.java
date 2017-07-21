@@ -42,6 +42,26 @@ public interface ReturnCode {
 	
 	String NAME_EXSIT_MSG = "用户名已存在";
 	
+	/** 手机未注册 */
+	String NOT_REGISTER_CODE = "1006";
+	
+	String NOT_REGISTER_MSG = "手机未注册";
+	
+	/** 帐号被永久冻结 */
+	String PERMANENT_FREEZE_CODE = "1007";
+	
+	String PERMANENT_FREEZE_MSG = "帐号被永久冻结";
+	
+	/** 帐号已被冻结 */
+	String ACCOUNT_FREEZE_CODE = "1008";
+	
+	String ACCOUNT_FREEZE_MSG = "帐号已被冻结";
+	
+	/** 密码输入错误 */
+	String PWD_ERROR_CODE = "1009";
+	
+	String PWD_ERROR_MSG = "密码输入错误";
+	
 	/** 程序错误 */
 	String PROGRAM_ERROR_CODE = "9999";
 	

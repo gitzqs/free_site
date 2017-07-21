@@ -106,7 +106,7 @@
    <root>  
        <level value="DEBUG"></level>  
        <appender-ref ref="STDOUT" />  
-      <!--  <appender-ref ref="DEBUG" />
+       <!-- <appender-ref ref="DEBUG" />
 	   <appender-ref ref="INFO" />
 	   <appender-ref ref="WARN" />
 	   <appender-ref ref="ERROR" />

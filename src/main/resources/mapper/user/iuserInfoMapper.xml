@@ -26,4 +26,28 @@
 		WHERE MOBILE = #{mobile}
 	</select>
 	<!-- 根据手机号获取用户信息 end -->
+	
+	
+	<!-- 帐号解除冻结/冻结/密码错误/登录成功 begin -->
+	<update id="updateStatus" parameterType="userInfo">
+		UPDATE TB_USER_INFO
+			<set>
+				ERROR_NUM = #{errorNum}
+				<if test="status != null">
+					,STATUS = #{status}
+				</if>
+				<if test="lastErrorTime != null and lastErrorTime != ''">
+					,LAST_ERROR_TIME = #{lastErrorTime}
+				</if>
+				<if test="lastLoginTime != null and lastLoginTime != ''">
+					,LAST_LOGIN_TIME = #{lastLoginTime}
+				</if>
+				<if test="frozenTime != null and frozenTime !=''">
+					,FROZEN_TIME = #{frozenTime}
+				</if>
+			</set>
+		WHERE ID = #{id}
+	</update>
+	<!-- 帐号解除冻结/冻结/密码错误/登录成功 end -->
+	
 </mapper>

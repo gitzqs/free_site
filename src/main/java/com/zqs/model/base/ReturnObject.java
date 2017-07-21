@@ -1,5 +1,7 @@
 package com.zqs.model.base;
 
+import java.io.Serializable;
+
 
 /**
  * 返回参数
@@ -7,7 +9,7 @@ package com.zqs.model.base;
  * @author qiushi.zhou  
  * @date 2017年3月3日 下午2:13:14
  */
-public class ReturnObject extends REntity{
+public class ReturnObject implements Serializable{
 
 	private static final long serialVersionUID = 4306428149004443000L;
 	

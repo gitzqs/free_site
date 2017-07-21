@@ -11,4 +11,12 @@ public interface IUserInfoMapper {
 	 * @return UserInfo
 	 */
 	UserInfo load(String mobile);
+	
+	/**
+	 * 解除冻结/冻结
+	 * 
+	 * @param 
+	 * @return void
+	 */
+	void updateStatus(UserInfo ui);
 }
